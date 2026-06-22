@@ -378,8 +378,10 @@ section[id] {
   animation: ld-shimmer 4s ease-in-out infinite;
 }
 
-/* Scroll-triggered reveal — used by <Reveal> for on-scroll fade-ups */
-.reveal {
+/* Scroll-triggered reveal — used by <Reveal> for on-scroll fade-ups.
+   Fail-open: `.reveal` stays visible until JS adds `.reveal-armed`, so content
+   is never stuck hidden if hydration/observer don't run. See reveal.tsx. */
+.reveal.reveal-armed {
   opacity: 0;
   transform: translateY(34px);
   transition:
@@ -388,7 +390,7 @@ section[id] {
   transition-delay: var(--reveal-delay, 0ms);
   will-change: opacity, transform;
 }
-.reveal.is-visible {
+.reveal.reveal-armed.is-visible {
   opacity: 1;
   transform: none;
 }
