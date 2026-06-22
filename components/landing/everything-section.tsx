@@ -102,7 +102,7 @@ export function EverythingSection() {
       {/* Product reveal — full-width dashboard that flows out of the hero */}
       <div className="mx-auto mt-16 max-w-[1820px] px-4 sm:mt-24 sm:px-6 lg:px-8">
         <Image
-          src="/IMGs/LIGHT-DASHBOARD.png"
+          src="/IMGs/DARK-DASHBOARD.png"
           alt="GYM CRM owner dashboard showing members, revenue and analytics"
           width={2880}
           height={1624}
