@@ -98,18 +98,33 @@ const memberFeatures = [
 
 export function EverythingSection() {
   return (
-    <section id="product" className="relative w-full mb-28 sm:mb-40">
-      {/* Product reveal — full-width dashboard that flows out of the hero */}
-      <div className="mx-auto mt-16 max-w-[1820px] px-4 sm:mt-24 sm:px-6 lg:px-8">
-        <Image
-          src="/IMGs/DARK-DASHBOARD.png"
-          alt="GYM CRM owner dashboard showing members, revenue and analytics"
-          width={2880}
-          height={1624}
-          priority
-          sizes="100vw"
-          className="h-auto w-full rounded-none shadow-[0_40px_90px_-50px_rgb(28_25_23_/0.3)] ring-1 ring-stone-900/6"
-        />
+    <section
+      id="product"
+      aria-labelledby="product-heading"
+      className="relative w-full mb-28 sm:mb-40"
+    >
+      {/* Product reveal — dark + light dashboard mockups.
+          Side by side on desktop, stacked on small screens. */}
+      <div className="mx-auto mt-16 max-w-300 px-4 sm:mt-24 sm:px-6 lg:px-8">
+        <div className="flex flex-col items-center justify-center gap-6 md:flex-row md:gap-8">
+          <Image
+            src="/IMGs/gym-analytics-dashboard-mock.webp"
+            alt="GYM CRM gym management dashboard in dark mode showing member analytics, revenue tracking and renewals"
+            width={1080}
+            height={1080}
+            priority
+            sizes="(max-width: 768px) 90vw, 48vw"
+            className="h-auto w-full max-w-md md:max-w-none md:flex-1"
+          />
+          <Image
+            src="/IMGs/gym-crm-dashboard-mock.webp"
+            alt="GYM CRM gym management dashboard in light mode showing the same revenue and member analytics overview"
+            width={1080}
+            height={1080}
+            sizes="(max-width: 768px) 90vw, 48vw"
+            className="h-auto w-full max-w-md md:max-w-none md:flex-1"
+          />
+        </div>
       </div>
 
       {/* Intro */}
@@ -118,7 +133,10 @@ export function EverythingSection() {
           <SectionLabel>Everything Included</SectionLabel>
         </Reveal>
         <Reveal delay={80} className="mt-5">
-          <h2 className="text-balance font-caprasimo text-[2.1rem] leading-[1.12] text-stone-900 sm:text-5xl md:text-[3.4rem]">
+          <h2
+            id="product-heading"
+            className="text-balance font-caprasimo text-[2.1rem] leading-[1.12] text-stone-900 sm:text-5xl md:text-[3.4rem]"
+          >
             Everything Your Gym Needs —{' '}
             <span className="bg-linear-to-r from-amber-600 to-orange-500 bg-clip-text text-transparent">
               Built Together
@@ -128,13 +146,14 @@ export function EverythingSection() {
         <Reveal delay={90}>
           <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-stone-500 sm:text-lg">
             One dashboard to run your gym, a personal website for your business, and a dedicated app
-            for every member — all connected, working together as one.
+            for every member — all-in-one gym management software, connected and working together as
+            one.
           </p>
         </Reveal>
       </div>
 
       {/* ================= BLOCK 1 — Owner Dashboard ================= */}
-      <div className="mt-28 sm:mt-44">
+      <article className="mt-28 sm:mt-44">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16">
           {/* Left — copy */}
           <div>
@@ -148,9 +167,10 @@ export function EverythingSection() {
             </Reveal>
             <Reveal delay={80}>
               <p className="mt-5 max-w-xl text-pretty text-base leading-relaxed text-stone-500 sm:text-lg">
-                Track members, payments, renewals, expenses, trainers, workout plans, and business
-                growth from one place. Replace spreadsheets and disconnected tools with a complete
-                operating system for your gym.
+                Track members, payments, renewals, expenses, trainers, and workout plans from a
+                single gym dashboard. Built-in gym analytics software turns revenue, expenses, and
+                member growth into clear numbers — replacing spreadsheets and disconnected tools with
+                one operating system for your gym.
               </p>
             </Reveal>
             <Reveal delay={150}>
@@ -160,16 +180,22 @@ export function EverythingSection() {
 
           {/* Right — dashboard video */}
           <Reveal delay={120}>
-            <VideoFrame src="/VIDs/DASHBOARD-WEB.mp4" label="GYM CRM dashboard walkthrough" />
+            <VideoFrame
+              src="/VIDs/gym-dashboard-software-demo.mp4"
+              label="GYM CRM gym dashboard software walkthrough showing member and revenue analytics"
+            />
           </Reveal>
         </div>
-      </div>
+      </article>
 
       {/* ================= BLOCK 2 — Personalized Gym Website ================= */}
-      <div className="mt-28 sm:mt-44">
+      <article className="mt-28 sm:mt-44">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16">
           <Reveal delay={120} className='order-2 lg:order-1'>
-            <VideoFrame src="/VIDs/OWNER-WEB.mp4" label="Personalized gym website demo" />
+            <VideoFrame
+              src="/VIDs/gym-website-builder-demo.mp4"
+              label="GYM CRM gym website builder demo showing a personalized fitness website"
+            />
           </Reveal>
 
           <div className="order-1 lg:order-2">
@@ -183,9 +209,10 @@ export function EverythingSection() {
             </Reveal>
             <Reveal delay={80}>
               <p className="mt-5 max-w-xl text-pretty text-base leading-relaxed text-stone-500 sm:text-lg">
-                Every gym automatically gets a beautiful and personalized website. Showcase
-                facilities, gallery, testimonials, contact information, working hours, and collect
-                new leads without hiring a developer.
+                Every gym automatically gets a beautiful, personalized website through the built-in
+                gym website builder. Showcase facilities, gallery, testimonials, working hours, and
+                contact details, and capture new leads from your own gym marketing website — no
+                developer required.
               </p>
             </Reveal>
             <Reveal delay={150}>
@@ -193,10 +220,10 @@ export function EverythingSection() {
             </Reveal>
           </div>
         </div>
-      </div>
+      </article>
 
       {/* ================= BLOCK 3 — Member Experience ================= */}
-      <div className="mt-28 sm:mt-44">
+      <article className="mt-28 sm:mt-44">
         <div className="mx-auto grid max-w-6xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16">
           <div className="order-1">
             <Reveal>
@@ -209,8 +236,10 @@ export function EverythingSection() {
             </Reveal>
             <Reveal delay={80}>
               <p className="mt-5 max-w-xl text-pretty text-base leading-relaxed text-stone-500 sm:text-lg">
-                Members receive their own dedicated web app where they can access memberships,
-                invoices, diet plans, workout plans, and interactive training tools anytime.
+                Members get their own dedicated gym member app to access memberships, invoices, diet
+                plans, and workout plans anytime. It doubles as a workout plan app and progress
+                tracker, while connected member management software keeps everything in sync with
+                your dashboard.
               </p>
             </Reveal>
             <Reveal delay={150}>
@@ -222,20 +251,20 @@ export function EverythingSection() {
             <div className="relative flex items-center justify-center py-6">
               <div className="ld-float flex w-full max-w-110 items-center justify-center">
                 <MemberShot
-                  src="/IMGs/DARK-MEMBER-HOME.png"
-                  alt="Member home screen in the GYM CRM member app"
+                  src="/IMGs/gym-member-app.webp"
+                  alt="GYM CRM member app home screen showing membership status and workout details"
                   className="w-[52%] -rotate-6"
                 />
                 <MemberShot
-                  src="/IMGs/LIGHT-MEMBER-DIET.png"
-                  alt="Member diet plan screen in the GYM CRM member app"
+                  src="/IMGs/gym-diet-plans.webp"
+                  alt="GYM CRM member app diet plan screen with meals, calories and alternatives"
                   className="z-10 -ml-10 mt-12 w-[52%] rotate-6"
                 />
               </div>
             </div>
           </Reveal>
         </div>
-      </div>
+      </article>
     </section>
   );
 }

@@ -6,10 +6,37 @@ import { Footer } from '@/components/landing/footer';
 import { HeroSection } from '@/components/landing/hero-section';
 import { PricingSection } from '@/components/landing/pricing-section';
 import { SiteNav } from '@/components/landing/site-nav';
+import { JsonLd } from '@/components/seo/json-ld';
+import { siteConfig } from '@/lib/site';
+import {
+  breadcrumbSchema,
+  faqPageSchema,
+  jsonLdGraph,
+  organizationSchema,
+  productSchema,
+  softwareApplicationSchema,
+  webPageSchema,
+  websiteSchema,
+} from '@/lib/structured-data';
+
+const homeJsonLd = jsonLdGraph(
+  organizationSchema(),
+  websiteSchema(),
+  softwareApplicationSchema(),
+  productSchema(),
+  webPageSchema({
+    path: '/',
+    name: siteConfig.title,
+    description: siteConfig.description,
+  }),
+  faqPageSchema(),
+  breadcrumbSchema([{ name: 'Home', path: '/' }]),
+);
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[oklch(0.99_0.004_85)] text-stone-900">
+    <main className="relative min-h-screen overflow-hidden bg-[rgb(255_251_241)] text-stone-900">
+      <JsonLd data={homeJsonLd} />
       {/* Hero gradient backdrop */}
       <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 z-0 h-230 overflow-hidden">
         {/* Warm mesh base */}
@@ -27,7 +54,7 @@ export default function Home() {
         <div className="hero-grain absolute inset-0 opacity-[0.04] mix-blend-soft-light" />
 
         {/* Fade the gradient into the page background */}
-        <div className="absolute inset-x-0 bottom-0 h-72 bg-linear-to-t from-[oklch(0.99_0.004_85)] to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-72 bg-linear-to-t from-[rgb(255_251_241)] to-transparent" />
       </div>
 
       <SiteNav />

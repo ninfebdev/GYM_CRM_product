@@ -1,49 +1,21 @@
 'use client';
 
 import { useId, useState } from 'react';
+import { faqs } from '@/lib/faqs';
 import { Plus } from './icons';
 import { Reveal } from './reveal';
 import { SectionLabel } from './section-label';
-
-const faqs = [
-  {
-    question: 'What is GYM CRM?',
-    answer:
-      'GYM CRM is an all-in-one platform for gyms that helps manage members, payments, workout plans, analytics, and even provides a personalized website and member app.',
-  },
-  {
-    question: 'Is there a free trial?',
-    answer:
-      'Yes. Every gym gets a 1-month free trial to explore the platform before subscribing.',
-  },
-  {
-    question: "What's included in the ₹12,000 yearly plan?",
-    answer:
-      'Everything. Member management, analytics, trial tracking, workout and diet plans, trainer management, PDF templates, personalized gym website, and the member web app are all included.',
-  },
-  {
-    question: 'Will my gym get its own website?',
-    answer:
-      'Yes. Every gym receives a personalized website where you can showcase facilities, gallery, testimonials, contact details, and attract new members.',
-  },
-  {
-    question: 'Do members get their own app?',
-    answer:
-      'Yes. Members receive access to their own web app where they can view memberships, invoices, diet plans, workout plans, and use the exercise library and workout simulator.',
-  },
-  {
-    question: 'Can I manage trainers, expenses, and payments?',
-    answer:
-      'Absolutely. GYM CRM helps you manage staff, track expenses and revenue, monitor renewals, and understand your business through powerful analytics.',
-  },
-];
 
 export function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   const baseId = useId();
 
   return (
-    <section id="faq" className="relative w-full my-28 sm:my-40">
+    <section
+      id="faq"
+      aria-labelledby="faq-heading"
+      className="relative w-full my-28 sm:my-40"
+    >
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         {/* Header — left aligned */}
         <div className="max-w-2xl">
@@ -51,13 +23,17 @@ export function FaqSection() {
             <SectionLabel>FAQs</SectionLabel>
           </Reveal>
           <Reveal delay={80} className="mt-5">
-            <h2 className="text-balance font-caprasimo text-[2rem] leading-[1.12] text-stone-900 sm:text-4xl md:text-[3rem]">
+            <h2
+              id="faq-heading"
+              className="text-balance font-caprasimo text-[2rem] leading-[1.12] text-stone-900 sm:text-4xl md:text-[3rem]"
+            >
               Frequently Asked Questions
             </h2>
           </Reveal>
           <Reveal delay={160}>
             <p className="mt-4 text-pretty text-base leading-relaxed text-stone-500 sm:text-lg">
-              Everything you need to know about GYM CRM.
+              Everything you need to know about GYM CRM — the all-in-one gym software and fitness
+              management platform.
             </p>
           </Reveal>
         </div>

@@ -57,9 +57,9 @@
 }
 
 :root {
-  /* Base: warm off-white from neutral-50/stone-50 family */
-  --background: oklch(0.985 0.002 75);
-  /* warm near-white */
+  /* Base: soft light-yellow off-white */
+  --background: rgb(255 251 241);
+  /* #fffbf1 */
   --foreground: oklch(0.145 0.008 75);
   /* warm near-black */
 
@@ -293,13 +293,13 @@ section[id] {
 
 /* Premium warm mesh / aurora gradient for the hero backdrop */
 .hero-aurora {
-  background-color: oklch(0.99 0.004 85);
+  background-color: rgb(255 251 241);
   background-image:
     radial-gradient(46% 40% at 50% -6%, oklch(0.87 0.15 72 / 0.55), transparent 62%),
     radial-gradient(38% 34% at 10% 6%, oklch(0.84 0.16 50 / 0.42), transparent 60%),
     radial-gradient(40% 36% at 90% 4%, oklch(0.89 0.11 32 / 0.40), transparent 60%),
     radial-gradient(52% 44% at 50% 30%, oklch(0.94 0.07 80 / 0.42), transparent 72%),
-    radial-gradient(70% 60% at 50% 118%, oklch(0.99 0.004 85), transparent);
+    radial-gradient(70% 60% at 50% 118%, rgb(255 251 241), transparent);
 }
 
 /* Fine grain to keep the gradient buttery and free of banding */

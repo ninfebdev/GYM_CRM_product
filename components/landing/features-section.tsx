@@ -60,7 +60,7 @@ const features: Feature[] = [
 
 function FeatureCard({ title, description }: Feature) {
   return (
-    <div
+    <article
       className="group flex h-full flex-col border-stone-200/80 bg-accent/90 p-6
       shadow-[0_1px_3px_rgb(28_25_23_/0.04)]
       transition-all duration-300
@@ -74,13 +74,17 @@ function FeatureCard({ title, description }: Feature) {
       <p className="mt-2 text-[0.95rem] leading-relaxed text-stone-500">
         {description}
       </p>
-    </div>
+    </article>
   );
 }
 
 export function FeaturesSection() {
   return (
-    <section id="features" className="relative w-full my-28 sm:my-40">
+    <section
+      id="features"
+      aria-labelledby="features-heading"
+      className="relative w-full my-28 sm:my-40"
+    >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
@@ -88,14 +92,18 @@ export function FeaturesSection() {
             <SectionLabel>Features</SectionLabel>
           </Reveal>
           <Reveal delay={90}>
-            <h2 className="mt-6 text-balance font-caprasimo text-[2rem] leading-[1.14] text-stone-900 sm:text-4xl md:text-[3rem]">
+            <h2
+              id="features-heading"
+              className="mt-6 text-balance font-caprasimo text-[2rem] leading-[1.14] text-stone-900 sm:text-4xl md:text-[3rem]"
+            >
               Everything You Need To Run And Grow Your Gym
             </h2>
           </Reveal>
           <Reveal delay={170}>
             <p className="mt-5 max-w-2xl text-pretty text-base leading-relaxed text-stone-500 sm:text-lg">
-              Manage members, track revenue, deliver workout plans, and create a better experience
-              for your members — all from one platform.
+              Complete gym membership software with a built-in fitness CRM, gym billing software, and
+              renewal tracking software — manage members, recover revenue, and deliver workout plans
+              from one platform.
             </p>
           </Reveal>
         </div>

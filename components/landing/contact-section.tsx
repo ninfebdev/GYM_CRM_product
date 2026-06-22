@@ -37,7 +37,11 @@ function Field({
 
 export function ContactSection() {
   return (
-    <section id="contact" className="relative w-full my-28 sm:my-40">
+    <section
+      id="contact"
+      aria-labelledby="contact-heading"
+      className="relative w-full my-28 sm:my-40"
+    >
       <div className="mx-auto max-w-150 px-4 sm:px-6">
         {/* Header */}
         <div className="flex flex-col items-center text-center">
@@ -45,20 +49,24 @@ export function ContactSection() {
             <SectionLabel>Contact Us</SectionLabel>
           </Reveal>
           <Reveal delay={80} className="mt-5">
-            <h2 className="text-balance font-caprasimo text-[2rem] leading-[1.14] text-stone-900 sm:text-4xl md:text-[2.8rem]">
+            <h2
+              id="contact-heading"
+              className="text-balance font-caprasimo text-[2rem] leading-[1.14] text-stone-900 sm:text-4xl md:text-[2.8rem]"
+            >
               Let&apos;s Talk About Your Gym
             </h2>
           </Reveal>
           <Reveal delay={160}>
             <p className="mt-4 text-pretty text-base leading-relaxed text-stone-500 sm:text-lg">
-              Have questions or want a demo? Leave your details and we&apos;ll get in touch with you.
+              Request a demo, start your free trial, or reach gym software support. Contact the GYM
+              CRM team and we&apos;ll get in touch to help you set up your gym.
             </p>
           </Reveal>
         </div>
 
         {/* Form card */}
         <Reveal delay={120} className="mt-12 sm:mt-14">
-          <form>
+          <form aria-label="Contact GYM CRM — request a demo or support">
             <ClipCard border="bg-stone-300" className="bg-white p-7 text-left sm:p-9">
               <div className='flex flex-col gap-4'>
                 <Field

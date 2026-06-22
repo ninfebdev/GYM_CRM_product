@@ -32,7 +32,11 @@ const platform = [
 
 export function PricingSection() {
   return (
-    <section id="pricing" className="relative w-full my-28 sm:my-40">
+    <section
+      id="pricing"
+      aria-labelledby="pricing-heading"
+      className="relative w-full my-28 sm:my-40"
+    >
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
@@ -40,14 +44,18 @@ export function PricingSection() {
             <SectionLabel>Pricing</SectionLabel>
           </Reveal>
           <Reveal delay={80} className="mt-5">
-            <h2 className="text-balance font-caprasimo text-[2rem] leading-[1.14] text-stone-900 sm:text-4xl md:text-[3rem]">
+            <h2
+              id="pricing-heading"
+              className="text-balance font-caprasimo text-[2rem] leading-[1.14] text-stone-900 sm:text-4xl md:text-[3rem]"
+            >
               One Price. Everything Included.
             </h2>
           </Reveal>
           <Reveal delay={160}>
             <p className="mt-5 max-w-2xl text-pretty text-base leading-relaxed text-stone-500 sm:text-lg">
-              No hidden charges, no feature limits, and no confusing plans. Get the complete Gym CRM
-              platform with your personalized gym website and member experience included.
+              Affordable gym management software with no hidden charges, feature limits, or confusing
+              plans. Gym software in India for one flat yearly price — your personalized gym website
+              and member app included.
             </p>
           </Reveal>
         </div>
@@ -69,14 +77,16 @@ export function PricingSection() {
 
             <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
               <a
-                href="#"
+                href="#contact"
+                aria-label="Start your free 1-month GYM CRM trial"
                 className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-stone-900 px-7 py-3.5 text-sm font-semibold text-white shadow-[0_12px_34px_-10px_rgb(28_25_23_/0.55)] transition-all hover:bg-stone-800 sm:w-auto"
               >
                 Start Free Trial
                 <ArrowRight className="text-[16px] transition-transform group-hover:translate-x-0.5" />
               </a>
               <a
-                href="#"
+                href="#contact"
+                aria-label="Book a demo of GYM CRM"
                 className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-stone-200 bg-white/70 px-7 py-3.5 text-sm font-semibold text-stone-700 shadow-sm backdrop-blur transition-all hover:border-stone-300 hover:bg-white sm:w-auto"
               >
                 <Play className="text-[12px] text-stone-500" />

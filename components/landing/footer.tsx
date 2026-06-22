@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { ClipCard } from './clip-card';
 import { ArrowRight, Barbell, Play } from './icons';
 import { Reveal } from './reveal';
@@ -6,23 +7,24 @@ import { SectionLabel } from './section-label';
 type FooterLink = { label: string; href: string };
 
 const productLinks: FooterLink[] = [
-  { label: 'Dashboard', href: '#product' },
-  { label: 'Member Space', href: '#product' },
-  { label: 'Personalized Website', href: '#product' },
-  { label: 'Pricing', href: '#pricing' },
+  { label: 'Dashboard', href: '/#product' },
+  { label: 'Member Space', href: '/#product' },
+  { label: 'Personalized Website', href: '/#product' },
+  { label: 'Pricing', href: '/#pricing' },
 ];
 
 const resourceLinks: FooterLink[] = [
-  { label: 'Features', href: '#features' },
-  { label: 'FAQs', href: '#faq' },
-  { label: 'Contact', href: '#contact' },
-  { label: 'Support', href: '#contact' },
+  { label: 'Features', href: '/#features' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'FAQs', href: '/#faq' },
+  { label: 'Contact', href: '/#contact' },
+  { label: 'Support', href: '/#contact' },
 ];
 
 const getStartedLinks: FooterLink[] = [
   { label: 'Login', href: '#' },
-  { label: 'Start Free Trial', href: '#' },
-  { label: 'Book a Demo', href: '#contact' },
+  { label: 'Start Free Trial', href: '/#pricing' },
+  { label: 'Book a Demo', href: '/#contact' },
 ];
 
 function FooterColumn({ title, links }: { title: string; links: FooterLink[] }) {
@@ -32,12 +34,12 @@ function FooterColumn({ title, links }: { title: string; links: FooterLink[] }) 
       <ul className="mt-4 space-y-3">
         {links.map((link) => (
           <li key={link.label}>
-            <a
+            <Link
               href={link.href}
               className="text-sm text-stone-500 transition-colors hover:text-stone-900"
             >
               {link.label}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
@@ -71,20 +73,22 @@ export function Footer() {
                   your members a premium experience — all from one place.
                 </p>
                 <div className="mt-9 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-                  <a
-                    href="#"
+                  <Link
+                    href="/#pricing"
+                    aria-label="Start your free GYM CRM trial"
                     className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-stone-900 px-7 py-3.5 text-sm font-semibold text-white shadow-[0_12px_34px_-10px_rgb(28_25_23_/0.55)] transition-all hover:bg-stone-800 sm:w-auto"
                   >
                     Start Free Trial
-                    <ArrowRight className="text-[16px] transition-transform group-hover:translate-x-0.5" />
-                  </a>
-                  <a
-                    href="#contact"
+                    <ArrowRight className="text-[16px] transition-transform group-hover:translate-x-0.5" aria-hidden />
+                  </Link>
+                  <Link
+                    href="/#contact"
+                    aria-label="Book a demo of GYM CRM"
                     className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-stone-200 bg-white/70 px-7 py-3.5 text-sm font-semibold text-stone-700 shadow-sm backdrop-blur transition-all hover:border-stone-300 hover:bg-white sm:w-auto"
                   >
-                    <Play className="text-[12px] text-stone-500" />
+                    <Play className="text-[12px] text-stone-500" aria-hidden />
                     Book a Demo
-                  </a>
+                  </Link>
                 </div>
               </div>
             </ClipCard>
@@ -95,16 +99,17 @@ export function Footer() {
         <div className="grid grid-cols-2 gap-10 pb-16 md:grid-cols-4 lg:gap-8">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
-            <a href="#" className="flex items-center gap-2.5">
+            <Link href="/" aria-label="GYM CRM home" className="flex items-center gap-2.5">
               <span className="flex size-8 items-center justify-center rounded-none bg-stone-900 text-amber-400 shadow-sm">
-                <Barbell className="text-[18px]" />
+                <Barbell className="text-[18px]" aria-hidden />
               </span>
               <span className="text-[15px] font-semibold tracking-tight text-stone-900">
                 GYM CRM
               </span>
-            </a>
+            </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-stone-500 font-geom">
-              The complete platform for running modern gyms. Trust us to help you grow your business and keep your members happy.
+              The complete gym management software for running modern gyms — members, billing,
+              analytics, and your gym website in one platform.
             </p>
           </div>
 
