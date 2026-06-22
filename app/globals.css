@@ -207,6 +207,20 @@ svg {
   vertical-align: middle;
 }
 
+/* Smooth in-page scrolling for navbar anchor links */
+html {
+  scroll-behavior: smooth;
+}
+/* Keep anchored sections clear of the floating navbar */
+section[id] {
+  scroll-margin-top: 6rem;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 .text-ui {
   transform: translateY(0.02em);
 }
@@ -219,11 +233,179 @@ svg {
   font-family: var(--font-young-serif), serif;
 }
 
-.font-dm-serif {
-  font-family: var(--font-dm-serif), serif;
+.font-geom {
+  font-family: var(--font-geom), sans-serif;
+}
+
+.font-caprasimo {
+  font-family: var(--font-caprasimo), serif;
 }
 
 .toast {
   border-radius: 0px !important;
   font-weight: bold !important;
+}
+
+/* ============================================================
+   Landing / marketing page — premium light-mode surface
+   ============================================================ */
+
+/* Subtle grid that fades out via a radial mask near the hero */
+.landing-grid {
+  background-image:
+    linear-gradient(to right, oklch(0.5 0.01 75 / 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(0.5 0.01 75 / 0.06) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse 78% 58% at 50% 0%, #000 18%, transparent 72%);
+  mask-image: radial-gradient(ellipse 78% 58% at 50% 0%, #000 18%, transparent 72%);
+}
+
+/* Faint dotted texture for the showcase backdrop */
+.landing-dots {
+  background-image: radial-gradient(oklch(0.5 0.01 75 / 0.12) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* Cut-corner (notched) card shape. Stack two layers — a colored layer behind
+   and a slightly inset fill on top — to get a visible border on every edge,
+   including the diagonal notches that clip-path would otherwise cut off. */
+.clip-notch {
+  clip-path: polygon(
+    var(--notch, 24px) 0,
+    100% 0,
+    100% calc(100% - var(--notch, 24px)),
+    calc(100% - var(--notch, 24px)) 100%,
+    0 100%,
+    0 var(--notch, 24px)
+  );
+}
+
+.clip-mini-notch {
+  clip-path: polygon(
+    var(--notch, 12px) 0,
+    100% 0,
+    100% calc(100% - var(--notch, 12px)),
+    calc(100% - var(--notch, 12px)) 100%,
+    0 100%,
+    0 var(--notch, 12px)
+  );
+}
+
+/* Premium warm mesh / aurora gradient for the hero backdrop */
+.hero-aurora {
+  background-color: oklch(0.99 0.004 85);
+  background-image:
+    radial-gradient(46% 40% at 50% -6%, oklch(0.87 0.15 72 / 0.55), transparent 62%),
+    radial-gradient(38% 34% at 10% 6%, oklch(0.84 0.16 50 / 0.42), transparent 60%),
+    radial-gradient(40% 36% at 90% 4%, oklch(0.89 0.11 32 / 0.40), transparent 60%),
+    radial-gradient(52% 44% at 50% 30%, oklch(0.94 0.07 80 / 0.42), transparent 72%),
+    radial-gradient(70% 60% at 50% 118%, oklch(0.99 0.004 85), transparent);
+}
+
+/* Fine grain to keep the gradient buttery and free of banding */
+.hero-grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+
+@keyframes ld-aurora-1 {
+  0%, 100% { transform: translate(-50%, 0) scale(1); }
+  50% { transform: translate(-46%, 4%) scale(1.12); }
+}
+@keyframes ld-aurora-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(6%, -4%) scale(1.1); }
+}
+.ld-aurora-1 { animation: ld-aurora-1 22s ease-in-out infinite; }
+.ld-aurora-2 { animation: ld-aurora-2 26s ease-in-out infinite; }
+
+@keyframes ld-fade-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes ld-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes ld-draw {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes ld-grow-y {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+@keyframes ld-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+@keyframes ld-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.8); }
+}
+@keyframes ld-shimmer {
+  0% { transform: translateX(-130%); }
+  100% { transform: translateX(330%); }
+}
+@keyframes ld-toast {
+  0% { opacity: 0; transform: translateY(10px) scale(0.97); }
+  6%, 40% { opacity: 1; transform: translateY(0) scale(1); }
+  48%, 100% { opacity: 0; transform: translateY(-10px) scale(0.97); }
+}
+@keyframes ld-scan {
+  0% { transform: translateX(-40%); opacity: 0; }
+  12%, 88% { opacity: 0.6; }
+  100% { transform: translateX(420%); opacity: 0; }
+}
+
+.ld-fade-up { animation: ld-fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.ld-fade-in { animation: ld-fade-in 1.1s ease both; }
+.ld-float { animation: ld-float 6.5s ease-in-out infinite; }
+.ld-draw {
+  stroke-dasharray: var(--len, 1400);
+  stroke-dashoffset: var(--len, 1400);
+  animation: ld-draw 2.4s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+}
+.ld-grow { transform-origin: bottom; animation: ld-grow-y 1s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.ld-dot-pulse { animation: ld-pulse 1.8s ease-in-out infinite; }
+.ld-toast { animation: ld-toast 8s ease-in-out 1.6s infinite; }
+.ld-scan { animation: ld-scan 5.5s ease-in-out 1.2s infinite; }
+.ld-shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, transparent 25%, oklch(1 0 0 / 0.45) 50%, transparent 75%);
+  transform: translateX(-130%);
+  animation: ld-shimmer 4s ease-in-out infinite;
+}
+
+/* Scroll-triggered reveal — used by <Reveal> for on-scroll fade-ups */
+.reveal {
+  opacity: 0;
+  transform: translateY(34px);
+  transition:
+    opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ld-fade-up, .ld-fade-in, .ld-float, .ld-draw, .ld-grow,
+  .ld-dot-pulse, .ld-toast, .ld-scan, .ld-shimmer::after,
+  .ld-aurora-1, .ld-aurora-2 {
+    animation: none !important;
+  }
+  .ld-fade-up, .ld-fade-in { opacity: 1 !important; transform: none !important; }
+  .ld-draw { stroke-dashoffset: 0 !important; }
+  .ld-grow { transform: scaleY(1) !important; }
+  .ld-toast { opacity: 1 !important; transform: none !important; }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Merriweather, Young_Serif, DM_Serif_Display } from "next/font/google";
+import { Merriweather, Young_Serif, Geom, Caprasimo } from "next/font/google";
 import "./globals.css";
 
 // Averta — local font, app-wide default (consumed via --font-averta in globals.css)
@@ -23,16 +23,23 @@ const youngSerif = Young_Serif({
   display: "swap",
 });
 
-const dmSerif = DM_Serif_Display({
+const geom = Geom({
+  subsets: ["latin"],
+  variable: "--font-geom",
+  display: "swap",
+});
+
+const caprasimo = Caprasimo({
   subsets: ["latin"],
   weight: "400",
-  variable: "--font-dm-serif",
+  variable: "--font-caprasimo",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "GYM CRM",
-  description: "Gym CRM product",
+  title: "GYM CRM — Run Your Entire Gym From One Platform",
+  description:
+    "Manage members, recover renewals, track revenue, create diet and workout plans, and deliver a premium member experience — all from one platform.",
 };
 
 export default function RootLayout({
@@ -43,7 +50,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${averta.variable} ${merriweather.variable} ${youngSerif.variable} ${dmSerif.variable} h-full antialiased`}
+      className={`${averta.variable} ${merriweather.variable} ${youngSerif.variable} ${geom.variable} ${caprasimo.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
